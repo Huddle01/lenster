@@ -7,6 +7,12 @@ interface SpacesState {
   setShowSpacesWindow: (showSpacesWindow: boolean) => void;
   lensAccessToken: string;
   setLensAccessToken: (lensAccessToken: string) => void;
+  space: {
+    id: string;
+    host: string;
+    title: string;
+  };
+  setSpace: (space: { id: string; host: string; title: string }) => void;
 }
 
 export const useSpacesStore = create<SpacesState>((set) => ({
@@ -15,5 +21,11 @@ export const useSpacesStore = create<SpacesState>((set) => ({
   showSpacesWindow: false,
   setShowSpacesWindow: (showSpacesWindow) => set(() => ({ showSpacesWindow })),
   lensAccessToken: '',
-  setLensAccessToken: (lensAccessToken) => set(() => ({ lensAccessToken }))
+  setLensAccessToken: (lensAccessToken) => set(() => ({ lensAccessToken })),
+  space: {
+    id: '',
+    host: '',
+    title: ''
+  },
+  setSpace: (space) => set(() => ({ space }))
 }));
